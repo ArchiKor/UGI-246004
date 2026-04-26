@@ -17,7 +17,7 @@ namespace Library
         public decimal Price { get; set; }
 
         
-        private readonly List<string> _authors; // Список авторов – хранится в закрытом поле, доступен только для чтения
+        private readonly List<string> _authors; 
         public IReadOnlyList<string> Authors => _authors.AsReadOnly();
 
 
@@ -39,10 +39,10 @@ namespace Library
         {
             var info = new string[2];
 
-            string authorsStr = string.Join(", ", _authors); //название и авторы
+            string authorsStr = string.Join(", ", _authors); 
             info[0] = $"{Title}. Авторы: {authorsStr}";
 
-            string statusText; //год, издательство, инв.номер, статус, цена
+            string statusText; 
             switch (Status)
             {
                 case EditionStatus.InStorage:

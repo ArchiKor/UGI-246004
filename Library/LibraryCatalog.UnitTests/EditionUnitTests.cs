@@ -10,7 +10,7 @@ namespace LibraryCatalog.UnitTests
         [Test]
         public void ConstructorTest()
         {
-            var authors = new List<string> { "Пушкин А.С.","Толстой Л.Н." };
+            var authors = new List<string> {"Пушкин А.С.","Толстой Л.Н."};
             var edition = CreateTestEdition(authors);
 
             Assert.That(edition.Title, Is.EqualTo("Евгений Онегин"));
@@ -25,7 +25,7 @@ namespace LibraryCatalog.UnitTests
         [Test]
         public void GetInfoTest()
         {
-            var authors = new List<string> { "Пушкин А.С.", "Толстой Л.Н." };
+            var authors = new List<string> {"Пушкин А.С.", "Толстой Л.Н."};
             var edition = CreateTestEdition(authors);
             var info = edition.GetInfo();
 
