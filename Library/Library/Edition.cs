@@ -26,7 +26,7 @@ namespace Library
             EditionStatus status, decimal price)
         {
             Title = title;
-            _authors = authors ?? new List<string>(); // защита от null
+            _authors = authors ?? new List<string>(); 
             Year = year;
             Publisher = publisher;
             Status = status;
@@ -34,6 +34,21 @@ namespace Library
 
             InventoryNumber = _nextInventoryNumber++;
         }
+
+        public int CompareTo(Edition other)
+        {
+            // Получаем первого автора или пустую строку, если список пуст
+            string author1 = Authors.Count > 0 ? Authors[0] : "";
+            string author2 = other.Authors.Count > 0 ? other.Authors[0] : "";
+
+            if (author1 != author2)
+                return author1.CompareTo(author2);
+            else if (Title != other.Title)
+                return Title.CompareTo(other.Title);
+            else
+                return other.Year.CompareTo(this.Year); // убывание года
+        }
+
 
         public virtual string[] GetInfo() // Метод для получения информации об объекте
         {
